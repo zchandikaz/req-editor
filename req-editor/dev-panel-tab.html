@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../res/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../res/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="dev-panel-tab.css"/>
     <script src="../res/js/jquery-3.6.0.min.js"></script>
-    <script src="../res/js/bootstrap.js"></script>
+    <script src="../res/js/bootstrap.bundle.min.js"></script>
 
     <script src="dev-panel-tab.js"></script>
 </head>
 <body>
 
-<div class="container">
-    <h1 class="h1 text-center">Req Editor ></h1>
-    <hr/>
+<div class="container-fluid">
+    <br/>
+    <!--    <h1 class="h1 text-center">Req Editor ></h1>-->
+<!--    <hr/>-->
     <div class="row">
         <div class="col-6">
             <button class="btn btn-primary">
@@ -23,6 +24,14 @@
             </button>
             <button class="btn btn-danger" id="btnReset">
                 Reset <i class="bi bi-arrow-counterclockwise"></i>
+            </button>
+            <br/>
+            <br/>
+            <button class="btn btn-primary border-5" id="btnNew"
+                    style="border-radius: 100px; padding: 10px 14px;position: fixed; right: 20px; bottom: 20px;"
+                    data-bs-toggle="tooltip" title="Add new rule"
+            >
+                <i class="bi bi-plus"></i>
             </button>
         </div>
         <div class="col-6">
@@ -38,8 +47,10 @@
 
     <div class="card">
         <div class="card-header">
-            Disable CSP
-
+            <div class="form-floating mb-3 d-inline-block w-75">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Disable CSP</label>
+            </div>
 
             <div class="float-end">
                 <div class="form-check form-switch  d-inline-block">
@@ -59,8 +70,51 @@
         <div class="card-body" id="collapseExample">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">URL</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                <button class="btn btn-outline-secondary" type="button"><i class="bi bi-toggles"></i></button>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-default">
+                <button class="btn btn-outline-secondary" type="button"
+                        data-bs-toggle="tooltip" title="Toggle URL/Regex"
+                ><i class="bi bi-toggles"></i></button>
+            </div>
+            <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-plus"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#" d-id="block">Block</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#" d-id="allow">Allow</a></li>
+                    <li><a class="dropdown-item" href="#" d-id="allowAllRequests">Allow All Requests</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#" d-id="redirect">Redirect</a></li>
+                    <li><a class="dropdown-item" href="#" d-id="upgradeScheme">Upgrade Scheme</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#" d-id="modifyHeaders">Modify Headers</a></li>
+                </ul>
+            </div>
+            <br/>
+            <div class="ruleActions">
+                <div class="card bg-light col-3 float-start m-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Block
+                            <i class="bi bi-x float-end" data-></i>
+                        </h5>
+                    </div>
+                </div>
+                <div class="card bg-light col-3 float-start m-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Allow
+                            <i class="bi bi-x float-end" data-></i>
+                        </h5>
+                    </div>
+                </div>
+                <div class="card bg-light col-4 float-start m-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Allow All
+                            <i class="bi bi-x float-end" data-></i>
+                        </h5>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
