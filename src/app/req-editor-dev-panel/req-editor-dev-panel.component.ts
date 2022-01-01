@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ReRule} from "../obj/ReRule";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-req-editor-dev-panel',
@@ -10,12 +11,11 @@ export class ReqEditorDevPanelComponent implements OnInit {
   rules: ReRule[] = [
     new ReRule(),
     new ReRule(),
-    new ReRule(),
   ];
 
   isEnabled = true;
 
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -26,5 +26,20 @@ export class ReqEditorDevPanelComponent implements OnInit {
 
   collapseAll(){
     this.rules.forEach(v=>v.isExpanded=false);
+  }
+
+  save(){
+    this.snackBar.open("All rules saved!")
+  }
+
+  reset(){
+    this.rules = [];
+    this.snackBar.open("All rules were cleared!")
+  }
+
+  addNewRule(){
+    this.rules.push(new ReRule())
+    setTimeout(()=>window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight),100);
+
   }
 }

@@ -16,18 +16,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatExpansionModule} from "@angular/material/expansion";
-import { EditableTestInputComponent } from './component/editable-test-input/editable-test-input.component';
+import { EditableTextInputComponent } from './component/editable-test-input/editable-text-input.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatSliderModule} from "@angular/material/slider";
 import {FormsModule} from "@angular/forms";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
     AppComponent,
     ReqEditorDevPanelComponent,
     ReRuleComponent,
-    EditableTestInputComponent
+    EditableTextInputComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,10 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     MatButtonToggleModule,
     MatSliderModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

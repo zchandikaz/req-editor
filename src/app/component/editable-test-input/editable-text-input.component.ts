@@ -2,10 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-editable-test-input',
-  templateUrl: './editable-test-input.component.html',
-  styleUrls: ['./editable-test-input.component.scss']
+  templateUrl: './editable-text-input.component.html',
+  styleUrls: ['./editable-text-input.component.scss']
 })
-export class EditableTestInputComponent implements OnInit {
+export class EditableTextInputComponent implements OnInit {
   isFocused = false;
 
   @Input()

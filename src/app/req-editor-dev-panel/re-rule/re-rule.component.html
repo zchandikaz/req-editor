@@ -34,7 +34,7 @@
         <div class="col-3">
           <mat-form-field class="example-margin" appearance="fill" [matTooltip]="'Priority'">
             <mat-label>Priority</mat-label>
-            <input matInput type="number" [(ngModel)]="rule.priority">
+            <input matInput type="number" [min]="1" [max]="200" [(ngModel)]="rule.priority">
           </mat-form-field>
         </div>
         <div class="col-2">
@@ -51,8 +51,23 @@
         </div>
       </div>
       <hr/>
-      <h3 class="h3">Actions</h3>
-      as
+
+      <span class="h6">Actions&nbsp;</span>
+      <button mat-fab color="primary" style="transform: scale(0.8)" [matMenuTriggerFor]="menu" matTooltip="Add actions">
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Block</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>Allow</button>
+        <button mat-menu-item>Allow All Requests</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>Redirect</button>
+        <button mat-menu-item>Upgrade Scheme</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>Modify Headers</button>
+      </mat-menu>
+
     </mat-card-content>
   </mat-card>
 </div>
