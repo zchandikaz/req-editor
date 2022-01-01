@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ReRule} from "../../obj/ReRule";
 import {EReRuleAction, EReRuleActionItem, ReRuleAction} from "../../obj/ReRuleAction";
 
@@ -15,7 +15,10 @@ export class ReRuleComponent implements AfterViewInit {
   ruleActions: ReRuleAction[] = [];
 
   @Input()
-  rule: ReRule = new ReRule();
+  rule: ReRule = new ReRule(1);
+
+  @Output()
+  remove: EventEmitter<ReRule> = new EventEmitter<ReRule>();
 
   @ViewChild('contentCard', {static: false, read: ElementRef}) elementView: ElementRef = {} as ElementRef;
 

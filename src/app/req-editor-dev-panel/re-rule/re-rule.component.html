@@ -10,7 +10,7 @@
         [(ngModel)]="rule.isEnabled"
         matTooltip="This rule is {{rule.isEnabled?'Enabled':'Disabled'}}"
       ></mat-slide-toggle>
-      <button matTooltip="Delete Rule" mat-icon-button style="margin: -7px 0 0 0">
+      <button (click)="remove.emit(rule)" matTooltip="Delete Rule" mat-icon-button style="margin: -7px 0 0 0">
         <mat-icon>delete</mat-icon>
       </button>
       <button  mat-icon-button

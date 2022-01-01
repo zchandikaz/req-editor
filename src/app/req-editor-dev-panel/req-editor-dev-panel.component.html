@@ -18,6 +18,6 @@
   </div>
   <hr/>
   <div class="rule-container">
-    <app-re-rule [rule]="rule" *ngFor="let rule of rules"></app-re-rule>
+    <app-re-rule [rule]="rule" (remove)="removeRule($event)" *ngFor="let rule of rules"></app-re-rule>
   </div>
 </div>

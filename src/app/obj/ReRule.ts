@@ -6,7 +6,12 @@ export class ReRule{
   filterType = ReRule.URL_FILTER;
   isEnabled = true;
   filterValue = '';
+  id: number;
 
   description='Untitled Rule';
   isExpanded = true;
+
+  constructor(id: number) {
+    this.id = id;
+  }
 }
