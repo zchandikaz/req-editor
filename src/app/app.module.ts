@@ -24,13 +24,15 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ReRuleActionComponent } from './req-editor-dev-panel/re-rule/re-rule-action/re-rule-action.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReqEditorDevPanelComponent,
     ReRuleComponent,
-    EditableTextInputComponent
+    EditableTextInputComponent,
+    ReRuleActionComponent
   ],
   imports: [
     BrowserModule,

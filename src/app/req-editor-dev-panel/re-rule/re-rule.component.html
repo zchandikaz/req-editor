@@ -57,17 +57,18 @@
         <mat-icon>add</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Block</button>
+        <button mat-menu-item [disabled]="checkRuleActionDisableStatus(EReRuleAction.BLOCK)" (click)="addRuleAction(EReRuleAction.BLOCK)">{{EReRuleAction.BLOCK.name}}</button>
+        <button mat-menu-item [disabled]="checkRuleActionDisableStatus(EReRuleAction.ALLOW)" (click)="addRuleAction(EReRuleAction.ALLOW)">{{EReRuleAction.ALLOW.name}}</button>
+        <button mat-menu-item [disabled]="checkRuleActionDisableStatus(EReRuleAction.ALLOW_ALL_REQUESTS)" (click)="addRuleAction(EReRuleAction.ALLOW_ALL_REQUESTS)">{{EReRuleAction.ALLOW_ALL_REQUESTS.name}}</button>
         <mat-divider></mat-divider>
-        <button mat-menu-item>Allow</button>
-        <button mat-menu-item>Allow All Requests</button>
+        <button mat-menu-item [disabled]="checkRuleActionDisableStatus(EReRuleAction.REDIRECT)" (click)="addRuleAction(EReRuleAction.REDIRECT)">{{EReRuleAction.REDIRECT.name}}</button>
+        <button mat-menu-item [disabled]="checkRuleActionDisableStatus(EReRuleAction.UPGRADE_SCHEME)" (click)="addRuleAction(EReRuleAction.UPGRADE_SCHEME)">{{EReRuleAction.UPGRADE_SCHEME.name}}</button>
         <mat-divider></mat-divider>
-        <button mat-menu-item>Redirect</button>
-        <button mat-menu-item>Upgrade Scheme</button>
-        <mat-divider></mat-divider>
-        <button mat-menu-item>Modify Headers</button>
+        <button mat-menu-item [disabled]="checkRuleActionDisableStatus(EReRuleAction.MODIFY_HEADERS)" (click)="addRuleAction(EReRuleAction.MODIFY_HEADERS)">{{EReRuleAction.MODIFY_HEADERS.name}}</button>
       </mat-menu>
-
+      <div class="rule-action-container">
+        <app-re-rule-action (close)="removeRuleAction($event)" [ruleAction]="ruleAction" *ngFor="let ruleAction of ruleActions"></app-re-rule-action>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

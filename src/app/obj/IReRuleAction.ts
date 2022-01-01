@@ -1,3 +1,0 @@
-interface IReRuleAction {
-  getName(): string;
-}
