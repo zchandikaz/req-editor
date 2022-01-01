@@ -17,6 +17,10 @@ import { MatInputModule } from '@angular/material/input';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatExpansionModule} from "@angular/material/expansion";
 import { EditableTestInputComponent } from './component/editable-test-input/editable-test-input.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatSliderModule} from "@angular/material/slider";
+import {FormsModule} from "@angular/forms";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { EditableTestInputComponent } from './component/editable-test-input/edit
     MatFormFieldModule,
     MatDatepickerModule,
     MatExpansionModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonToggleModule,
+    MatSliderModule,
+    FormsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

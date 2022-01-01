@@ -2,13 +2,16 @@
   transition: all 500ms;
 }
 
-.expanded-card-content{
+.expandable-card{
   z-index: 1;
-  transform: translateY(0%);
+  display: block;
+}
+
+.expanded-card-content{
+  //transform: translateY(0%);
 }
 
 .collapse-card-content{
-  z-index: 1;
   transform: translateY(-100%);
 }
 
@@ -18,4 +21,5 @@
 
 .rule-container{
   overflow-y: hidden;
+  margin: 10px 0px 10px 0px;
 }

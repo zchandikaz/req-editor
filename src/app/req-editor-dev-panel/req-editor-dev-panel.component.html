@@ -1,15 +1,19 @@
 <div class="container-fluid">
   <div class="dev-panel-container">
-    <button class="p-2 m-2" mat-raised-button color="primary">&nbsp;Save <mat-icon>save</mat-icon>&nbsp;</button>
-    <button class="p-2 m-2" mat-raised-button color="warn">&nbsp;Reset <mat-icon>lock_reset</mat-icon>&nbsp;</button>
+    <button matTooltip="Save rules" class="p-2 m-2" mat-raised-button color="primary">&nbsp;Save <mat-icon>save</mat-icon>&nbsp;</button>
+    <button matTooltip="Reset rules" class="p-2 m-2" mat-raised-button color="warn">&nbsp;Reset <mat-icon>lock_reset</mat-icon>&nbsp;</button>
 
-    <mat-slide-toggle class="float-end p-4">Enabled</mat-slide-toggle>
-    <button class="m-2" style="position: fixed; right: 10px; bottom: 10px;" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+    <button matTooltip="Save rules" (click)="expandAll()" class="p-2 m-2" mat-raised-button color="basic">&nbsp;Expand All <mat-icon>expand_less</mat-icon>&nbsp;</button>
+    <button matTooltip="Save rules" (click)="collapseAll()" class="p-2 m-2" mat-raised-button color="basic">&nbsp;Collapse All <mat-icon>expand_more</mat-icon>&nbsp;</button>
+
+
+    <mat-slide-toggle class="float-end p-4" [(ngModel)]="isEnabled">Enabled</mat-slide-toggle>
+    <button matTooltip="Add new rule" class="m-2" style="position: fixed; right: 10px; bottom: 10px;z-index: 100" mat-fab color="primary">
       <mat-icon>add_task</mat-icon>
     </button>
   </div>
   <hr/>
   <div class="rule-container">
-    <app-re-rule></app-re-rule>
+    <app-re-rule [rule]="rule" *ngFor="let rule of rules"></app-re-rule>
   </div>
 </div>

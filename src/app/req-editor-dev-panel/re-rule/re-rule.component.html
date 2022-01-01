@@ -1,46 +1,58 @@
 <div class="rule-container">
   <mat-card
-    style="background-color: rgb(250,250,250); border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; z-index: 2">
-    <app-editable-test-input [value]="'Untitled Rule'"></app-editable-test-input>
+    style="background-color: rgb(250,250,250); border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; z-index: 2">
+    <app-editable-test-input matTooltip="Edit rule name" [value]="rule.description"></app-editable-test-input>
 
-    <mat-card-actions align="end" style="padding-top: 0px; margin-top: -25px;">
-      <mat-slide-toggle style="margin-right: 10px"></mat-slide-toggle>
-      <button mat-icon-button style="margin: -7px 0px 0px 0px">
-        <mat-icon>close</mat-icon>
+    <mat-card-actions align="end" style="padding-top: 0; margin-top: -25px;">
+      <mat-slide-toggle
+        style="margin-right: 10px"
+        [(ngModel)]="rule.isEnabled"
+        matTooltip="This rule is {{rule.isEnabled?'Enabled':'Disabled'}}"
+      ></mat-slide-toggle>
+      <button matTooltip="Delete Rule" mat-icon-button style="margin: -7px 0 0 0">
+        <mat-icon>delete</mat-icon>
       </button>
-      <button mat-icon-button style="margin: -7px 0px 0px 0px" (click)="toggleExpand()">
-        <mat-icon class="simple-transition" [class.rotated-180]="!isExpanded">expand_more</mat-icon>
+      <button  mat-icon-button
+               style="margin: -7px 0 0 0"
+               matTooltip="{{rule.isExpanded?'Collapse':'Expand'}} the rule"
+               (click)="toggleExpand()">
+        <mat-icon class="simple-transition" [class.rotated-180]="!rule.isExpanded">expand_less</mat-icon>
       </button>
     </mat-card-actions>
   </mat-card>
-  <mat-card style="background-color: rgb(250,250,250); border-top-left-radius: 0px; border-top-right-radius: 0px"
-            class="simple-transition"
-            [ngClass]="{'expanded-card-content': isExpanded, 'collapse-card-content' : !isExpanded }"
+  <mat-card #contentCard  style="background-color: rgb(250,250,250);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;"
+            [ngStyle]="applyCollapseCardStyle()"
+            class="expandable-card simple-transition"
+            [ngClass]="{'expanded-card-content': rule.isExpanded, 'collapse-card-content' : !rule.isExpanded }"
   >
     <mat-card-content
     >
-      Haai
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
-      asdfdasasd asdasd<br/>
+      <div class="row">
+        <div class="col-3">
+          <mat-form-field class="example-margin" appearance="fill" [matTooltip]="'Priority'">
+            <mat-label>Priority</mat-label>
+            <input matInput type="number" [(ngModel)]="rule.priority">
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-button-toggle-group [(value)]="rule.filterType" [matTooltip]="'Filter Type'">
+            <mat-button-toggle [value]="REGEX_FILTER">RegEx</mat-button-toggle>
+            <mat-button-toggle [value]="URL_FILTER">URL</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="col-7">
+          <mat-form-field appearance="fill" class="w-100" [matTooltip]="rule.filterType + ' Filter'">
+            <mat-label>{{rule.filterType}} Filter</mat-label>
+            <input matInput placeholder="{{rule.filterType}} Filter" [(ngModel)]="rule.filterValue">
+          </mat-form-field>
+        </div>
+      </div>
+      <hr/>
+      <h3 class="h3">Actions</h3>
+      as
     </mat-card-content>
   </mat-card>
 </div>
