@@ -1,0 +1,9 @@
+<div>
+  <input type="text"
+         class="editable-text-default h5"
+         (blur)="onBlur()"
+         (focus)="onFocus()"
+         [class.non-editable-text]="!isFocused"
+         [class.editable-text]="isFocused"
+         [value]="value">
+</div>

@@ -1,0 +1,16 @@
+.editable-text-default{
+  transition: all 0.3s;
+  outline: none;
+  width: 50%;
+  background-color: rgba(0,0,0,0);
+}
+
+.non-editable-text{
+  border: none;
+}
+
+.editable-text{
+  border-width: 0px 0px 2px 0px;
+  border-radius: 0px;
+  padding: 5px;
+}

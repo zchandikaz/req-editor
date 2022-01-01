@@ -1,0 +1,46 @@
+<div class="rule-container">
+  <mat-card
+    style="background-color: rgb(250,250,250); border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px; z-index: 2">
+    <app-editable-test-input [value]="'Untitled Rule'"></app-editable-test-input>
+
+    <mat-card-actions align="end" style="padding-top: 0px; margin-top: -25px;">
+      <mat-slide-toggle style="margin-right: 10px"></mat-slide-toggle>
+      <button mat-icon-button style="margin: -7px 0px 0px 0px">
+        <mat-icon>close</mat-icon>
+      </button>
+      <button mat-icon-button style="margin: -7px 0px 0px 0px" (click)="toggleExpand()">
+        <mat-icon class="simple-transition" [class.rotated-180]="!isExpanded">expand_more</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card style="background-color: rgb(250,250,250); border-top-left-radius: 0px; border-top-right-radius: 0px"
+            class="simple-transition"
+            [ngClass]="{'expanded-card-content': isExpanded, 'collapse-card-content' : !isExpanded }"
+  >
+    <mat-card-content
+    >
+      Haai
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+      asdfdasasd asdasd<br/>
+    </mat-card-content>
+  </mat-card>
+</div>

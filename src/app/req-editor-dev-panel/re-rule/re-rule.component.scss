@@ -1,0 +1,21 @@
+.simple-transition{
+  transition: all 500ms;
+}
+
+.expanded-card-content{
+  z-index: 1;
+  transform: translateY(0%);
+}
+
+.collapse-card-content{
+  z-index: 1;
+  transform: translateY(-100%);
+}
+
+.rotated-180{
+  transform: rotate(180deg);
+}
+
+.rule-container{
+  overflow-y: hidden;
+}

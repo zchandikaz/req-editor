@@ -1,0 +1,21 @@
+{
+  "name": "Req-Editor",
+  "description": "Request Editor",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "chrome_ext/background.js"
+  },
+  "icons": {
+    "16": "/assets/img/logo-16_x_16.png",
+    "32": "/assets/img/logo-32_x_32.png",
+    "48": "/assets/img/logo-48_x_48.png",
+    "128": "/assets/img/logo-128_x_128.png"
+  },
+  "devtools_page": "chrome_ext/devtools_init.html",
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ]
+}
